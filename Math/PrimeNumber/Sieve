@@ -1,0 +1,50 @@
+//Eratosthenes 埃氏筛
+
+const int N=1e6+10;
+int book[N];//是否为质数的标记
+vector<int> vt[N]; //记录每一个数的质因子
+int n;
+int res=0; //1-n的质数个数
+
+void Era()
+{
+    for(int i=2;i<=n;i++)
+    {
+        if(book[i]) continue;
+        //cout<<i<<endl;
+        res++;
+        //vt[i].push_back(i);
+        for(int j=2;j<=n/i;j++)
+        {
+            book[i*j]=1;
+            //vt[i*j].push_back(i);
+        }
+    }
+}
+
+//Linear 线性筛
+
+const int N=1e6+10;
+int book[N];//标记每一个数是否为质数，O(1)查询
+int su[N],pri[N]; //su记录 1-n的所有质数，pri记录每一个数的最小质因子
+int n;
+int res; 
+
+void Lin()
+{
+    book[0]=book[1]=1;
+    for(int i=2;i<=n;i++)
+    {
+        if(!book[i])
+        {
+            su[++res]=i;
+            //pri[i]=i;
+        }
+        for(int j=1;j<=res&&su[j]<=n/i;j++)
+        {
+            book[su[j]*i]=1;
+            //pri[su[j]*i]=su[j];
+            if(i%su[j]==0) break;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+//试除法分解质因数
+
+const int N=1e6+10;
+int pri[N],c[N];
+int cnt;
+
+void Tri_div(int x)
+{
+    cnt=0;
+    for(int i=2;i<=sqrt(x);i++)
+    {
+        if(x%i==0)
+        {
+            pri[++cnt]=i;
+            c[cnt]=0;
+            while(x%i==0)
+            {
+                x/=i;
+                c[cnt]++;
+            }
+        }
+    }
+    if(x>1)
+    {
+        pri[++cnt]=x;
+        c[cnt]=1;
+    }
+}
