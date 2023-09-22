@@ -42,7 +42,7 @@ ll read()
     return res*f;
 }
 
-ll qmul(ll x,ll y,ll mod)//快乘
+ll qmul(ll x,ll y,ll mod)//快乘!!! 高精度的直接乘法会报错
 {
     return (x*y-(ll)(x/(long double )mod*y+1e-3)*mod+mod)%mod;
 }

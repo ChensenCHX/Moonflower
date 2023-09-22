@@ -17,6 +17,7 @@ int Euler(int x)
     }
     if(x>1) res=res/x*(x-1);
     return res;
+    //一个合数的质因子最多仅有一个在sqrt(N)外
 }
 
 //线性筛求欧拉
