@@ -3,6 +3,8 @@
 //φ(N)=N*[(p1-1)/p1]*[(p2-1)/p2]*...[(pk-1)/pk]
 
 //试除法
+#include <math.h>
+using namespace std;
 
 int Euler(int x)
 {
@@ -27,9 +29,14 @@ int Euler(int x)
 //1：设p为质数，若p|n，且不p^2|n
 //φ(N)=φ(N/p)*(p-1)
 
+const int SIZE = 1000;
 
-int Euler()
-{
+int book[SIZE];
+int Eul[SIZE];
+int su[SIZE];
+int cnt = 0;
+
+int Euler(int n){
     book[0]=book[1]=1;
     Eul[1]=1;
     for(int i=2;i<=n;i++)
@@ -47,4 +54,26 @@ int Euler()
             if(i%su[j]==0) break;
         }
     }
-}  
+}
+
+//姚岳宸附一版 STL
+#include <vector>
+const int MAXN = 100000;
+bool isnp[MAXN];
+vector<int> primes; // 质数表
+void init(int n)
+{
+    for (int i = 2; i <= n; i++)
+    {
+        if (!isnp[i])
+            primes.push_back(i);
+        for (int p : primes)
+        {
+            if (p * i > n)
+                break;
+            isnp[p * i] = 1;
+            if (i % p == 0)
+                break;
+        }
+    }
+}

@@ -1,4 +1,13 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int read();
+int n;
 //试除法求单点约数集合 
+
+
 
 void solve()
 {
@@ -18,8 +27,8 @@ void solve()
 }
 
 //倍数法
-
-n=read();
+const int N = 10000; 
+void slove(){
     vector<int> vt[N];
     for(int i=1;i<=n;i++)
     {
@@ -34,3 +43,4 @@ n=read();
         for(auto it:vt[i]) cout<<it<<" ";
         cout<<endl;
     }
+}
