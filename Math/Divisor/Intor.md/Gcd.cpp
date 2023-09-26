@@ -4,6 +4,12 @@
 
 //高精度的除法与取模并不容易实现
 //所以要做高精度运算时，建议此法
+
+#include <iostream>
+using namespace std;
+
+int read();
+
 void solve()
 {
     int a=read(),b=read();
